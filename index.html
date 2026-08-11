@@ -115,7 +115,7 @@
       <div class="hero-image hero-pattern" aria-hidden="true" role="img" aria-label="Textured hero pattern"></div>
     </section>
 
-    <section id="solutions" class="section container">
+    <section id="solutions" class="section container scroll-fade">
       <h2>Solutions</h2>
       <p class="sub">Strategic services marrying marketing and technology</p>
       <div class="grid three-col">
@@ -136,7 +136,7 @@
       </div>
     </section>
 
-    <section id="work" class="section alt container">
+    <section id="work" class="section alt container scroll-fade">
       <h2>Selected Work</h2>
       <p class="sub">Outcome-driven engagements</p>
       <div class="grid two-col">
@@ -154,7 +154,7 @@
       </div>
     </section>
 
-    <section id="about" class="section container">
+    <section id="about" class="section container scroll-fade">
       <div class="grid two-col">
         <div>
           <h2>About Us</h2>
@@ -169,7 +169,7 @@
       </div>
     </section>
 
-    <section id="contact" class="section container contact">
+    <section id="contact" class="section container contact scroll-fade">
       <div class="grid two-col">
         <div>
           <h2>Contact</h2>
@@ -228,6 +228,25 @@
 
     // Auto year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll fade animation
+    (function() {
+      const elements = document.querySelectorAll('.scroll-fade');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      elements.forEach(el => observer.observe(el));
+    })();
   </script>
 </body>
 </html>
