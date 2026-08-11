@@ -1,276 +1,159 @@
-<svg xmlns="http://www.w3.org/2000/svg"
-     width="1600"
-     height="900"
-     viewBox="0 0 1600 900"
-     preserveAspectRatio="xMidYMid slice">
-
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
   <defs>
-
-    <!-- Background -->
-    <linearGradient id="bg"
-                    x1="0"
-                    y1="0"
-                    x2="1"
-                    y2="1">
-
-      <stop offset="0%"
-            stop-color="#f8fafc"/>
-
-      <stop offset="100%"
-            stop-color="#eef3f8"/>
-
+    <style>
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+      
+      @keyframes pulse {
+        0%, 100% { r: 6px; fill-opacity: 1; }
+        50% { r: 10px; fill-opacity: 0.4; }
+      }
+      
+      @keyframes flowData {
+        0% { stroke-dashoffset: 20; }
+        100% { stroke-dashoffset: 0; }
+      }
+      
+      @keyframes glow {
+        0%, 100% { filter: drop-shadow(0 0 4px rgba(52,87,124,0.4)); }
+        50% { filter: drop-shadow(0 0 12px rgba(52,87,124,0.8)); }
+      }
+      
+      .node {
+        animation: float 4s ease-in-out infinite;
+      }
+      
+      .node-1 { animation-delay: 0s; }
+      .node-2 { animation-delay: 0.5s; }
+      .node-3 { animation-delay: 1s; }
+      .node-4 { animation-delay: 1.5s; }
+      
+      .pulse-node {
+        animation: pulse 2s ease-in-out infinite;
+      }
+      
+      .pulse-1 { animation-delay: 0s; }
+      .pulse-2 { animation-delay: 0.4s; }
+      .pulse-3 { animation-delay: 0.8s; }
+      .pulse-4 { animation-delay: 1.2s; }
+      
+      .data-line {
+        stroke: #34577c;
+        stroke-width: 2;
+        fill: none;
+        stroke-dasharray: 10, 10;
+        animation: flowData 3s linear infinite;
+      }
+      
+      .data-line-1 { animation-delay: 0s; }
+      .data-line-2 { animation-delay: 0.5s; }
+      .data-line-3 { animation-delay: 1s; }
+      
+      .accent-glow {
+        animation: glow 3s ease-in-out infinite;
+      }
+      
+      .glow-1 { animation-delay: 0s; }
+      .glow-2 { animation-delay: 0.6s; }
+      .glow-3 { animation-delay: 1.2s; }
+    </style>
+    
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f7fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#eef4fa;stop-opacity:1" />
     </linearGradient>
-
-    <!-- Connection lines -->
-    <linearGradient id="flow"
-                    x1="0"
-                    y1="0"
-                    x2="1"
-                    y2="0">
-
-      <stop offset="0%"
-            stop-color="#34577c"
-            stop-opacity=".15"/>
-
-      <stop offset="100%"
-            stop-color="#34577c"
-            stop-opacity=".45"/>
-
+    
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34577c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#284662;stop-opacity:1" />
     </linearGradient>
-
-    <!-- Card glow -->
-    <filter id="shadow">
-      <feDropShadow dx="0"
-                    dy="10"
-                    stdDeviation="20"
-                    flood-color="#34577c"
-                    flood-opacity=".08"/>
-    </filter>
-
   </defs>
-
+  
   <!-- Background -->
-  <rect width="100%"
-        height="100%"
-        fill="url(#bg)"/>
-
-  <!-- Subtle grid -->
-
-  <g stroke="#e8edf3"
-     stroke-width="1">
-
-    <path d="M0 150 H1600"/>
-    <path d="M0 300 H1600"/>
-    <path d="M0 450 H1600"/>
-    <path d="M0 600 H1600"/>
-    <path d="M0 750 H1600"/>
-
-    <path d="M200 0 V900"/>
-    <path d="M400 0 V900"/>
-    <path d="M600 0 V900"/>
-    <path d="M800 0 V900"/>
-    <path d="M1000 0 V900"/>
-    <path d="M1200 0 V900"/>
-    <path d="M1400 0 V900"/>
-
+  <rect width="400" height="500" fill="url(#bgGrad)"/>
+  
+  <!-- Top Left Node -->
+  <g class="node node-1">
+    <circle cx="80" cy="100" r="30" fill="rgba(238,244,250,1)" stroke="#34577c" stroke-width="2"/>
+    <circle cx="80" cy="100" r="20" fill="rgba(52,87,124,0.1)"/>
+    <circle class="pulse-node pulse-1" cx="80" cy="100" r="6" fill="#34577c"/>
+    <text x="80" y="110" font-size="12" fill="#34577c" text-anchor="middle" font-weight="600">Data</text>
   </g>
-
-  <!-- Input systems -->
-
-  <rect x="180"
-        y="180"
-        width="170"
-        height="90"
-        rx="16"
-        fill="#ffffff"
-        filter="url(#shadow)"/>
-
-  <rect x="180"
-        y="360"
-        width="170"
-        height="90"
-        rx="16"
-        fill="#ffffff"
-        filter="url(#shadow)"/>
-
-  <rect x="180"
-        y="540"
-        width="170"
-        height="90"
-        rx="16"
-        fill="#ffffff"
-        filter="url(#shadow)"/>
-
-  <!-- Data Platform -->
-
-  <rect x="620"
-        y="260"
-        width="320"
-        height="300"
-        rx="24"
-        fill="#ffffff"
-        filter="url(#shadow)"
-        stroke="#dbe2ea"
-        stroke-width="2"/>
-
-  <!-- Analytics layer -->
-
-  <rect x="1140"
-        y="180"
-        width="220"
-        height="120"
-        rx="18"
-        fill="#ffffff"
-        filter="url(#shadow)"/>
-
-  <rect x="1140"
-        y="390"
-        width="220"
-        height="120"
-        rx="18"
-        fill="#ffffff"
-        filter="url(#shadow)"/>
-
-  <rect x="1140"
-        y="600"
-        width="220"
-        height="120"
-        rx="18"
-        fill="#ffffff"
-        filter="url(#shadow)"/>
-
-  <!-- Connection lines -->
-
-  <g fill="none"
-     stroke="url(#flow)"
-     stroke-width="6">
-
-    <path d="M350 225 C450 225 520 330 620 360"/>
-
-    <path d="M350 405 C450 405 520 405 620 405"/>
-
-    <path d="M350 585 C450 585 520 480 620 450"/>
-
-    <path d="M940 360 C1030 360 1080 240 1140 240"/>
-
-    <path d="M940 410 C1030 410 1080 450 1140 450"/>
-
-    <path d="M940 460 C1030 460 1080 660 1140 660"/>
-
+  
+  <!-- Center Top Node -->
+  <g class="node node-2">
+    <circle cx="200" cy="80" r="30" fill="rgba(238,244,250,1)" stroke="#34577c" stroke-width="2"/>
+    <circle cx="200" cy="80" r="20" fill="rgba(52,87,124,0.1)"/>
+    <circle class="pulse-node pulse-2" cx="200" cy="80" r="6" fill="#34577c"/>
+    <text x="200" y="90" font-size="12" fill="#34577c" text-anchor="middle" font-weight="600">AI</text>
   </g>
-
-  <!-- Nodes -->
-
-  <g fill="#34577c">
-
-    <circle cx="350" cy="225" r="8"/>
-    <circle cx="350" cy="405" r="8"/>
-    <circle cx="350" cy="585" r="8"/>
-
-    <circle cx="620" cy="360" r="10"/>
-    <circle cx="620" cy="405" r="10"/>
-    <circle cx="620" cy="450" r="10"/>
-
-    <circle cx="1140" cy="240" r="10"/>
-    <circle cx="1140" cy="450" r="10"/>
-    <circle cx="1140" cy="660" r="10"/>
-
+  
+  <!-- Top Right Node -->
+  <g class="node node-3">
+    <circle cx="320" cy="100" r="30" fill="rgba(238,244,250,1)" stroke="#34577c" stroke-width="2"/>
+    <circle cx="320" cy="100" r="20" fill="rgba(52,87,124,0.1)"/>
+    <circle class="pulse-node pulse-3" cx="320" cy="100" r="6" fill="#34577c"/>
+    <text x="320" y="110" font-size="12" fill="#34577c" text-anchor="middle" font-weight="600">Tech</text>
   </g>
-
-  <!-- Analytics Chart Illustration -->
-
-  <g transform="translate(1180,205)">
-
-    <rect x="0"
-          y="40"
-          width="20"
-          height="35"
-          fill="#34577c"
-          opacity=".5"/>
-
-    <rect x="35"
-          y="10"
-          width="20"
-          height="65"
-          fill="#34577c"
-          opacity=".7"/>
-
-    <rect x="70"
-          y="25"
-          width="20"
-          height="50"
-          fill="#34577c"
-          opacity=".6"/>
-
-    <rect x="105"
-          y="0"
-          width="20"
-          height="75"
-          fill="#34577c"/>
+  
+  <!-- Center Large Node -->
+  <g class="node node-4 accent-glow glow-1">
+    <circle cx="200" cy="280" r="45" fill="rgba(52,87,124,0.05)" stroke="url(#accentGrad)" stroke-width="3"/>
+    <circle cx="200" cy="280" r="35" fill="rgba(238,244,250,1)" stroke="#34577c" stroke-width="2"/>
+    <circle class="pulse-node pulse-4" cx="200" cy="280" r="8" fill="#34577c"/>
+    <text x="200" y="285" font-size="14" fill="#34577c" text-anchor="middle" font-weight="700">Marketing</text>
   </g>
-
-  <!-- AI Network Illustration -->
-
-  <g stroke="#34577c"
-     stroke-width="3"
-     fill="#34577c"
-     opacity=".75">
-
-    <circle cx="1205" cy="435" r="7"/>
-    <circle cx="1265" cy="405" r="7"/>
-    <circle cx="1320" cy="450" r="7"/>
-    <circle cx="1235" cy="490" r="7"/>
-
-    <line x1="1205"
-          y1="435"
-          x2="1265"
-          y2="405"/>
-
-    <line x1="1265"
-          y1="405"
-          x2="1320"
-          y2="450"/>
-
-    <line x1="1205"
-          y1="435"
-          x2="1235"
-          y2="490"/>
-
-    <line x1="1235"
-          y1="490"
-          x2="1320"
-          y2="450"/>
-
+  
+  <!-- Bottom Left Node -->
+  <g class="node node-1 accent-glow glow-2">
+    <circle cx="100" cy="420" r="28" fill="rgba(238,244,250,1)" stroke="#34577c" stroke-width="2"/>
+    <circle cx="100" cy="420" r="18" fill="rgba(52,87,124,0.1)"/>
+    <circle class="pulse-node pulse-1" cx="100" cy="420" r="6" fill="#34577c"/>
+    <text x="100" y="430" font-size="11" fill="#34577c" text-anchor="middle" font-weight="600">Strategy</text>
   </g>
-
-  <!-- KPI Panel Illustration -->
-
-  <g transform="translate(1180,630)">
-
-    <rect x="0"
-          y="0"
-          width="120"
-          height="12"
-          rx="6"
-          fill="#34577c"
-          opacity=".25"/>
-
-    <rect x="0"
-          y="30"
-          width="80"
-          height="12"
-          rx="6"
-          fill="#34577c"
-          opacity=".40"/>
-
-    <rect x="0"
-          y="60"
-          width="150"
-          height="12"
-          rx="6"
-          fill="#34577c"
-          opacity=".60"/>
-
+  
+  <!-- Bottom Right Node -->
+  <g class="node node-2 accent-glow glow-3">
+    <circle cx="300" cy="420" r="28" fill="rgba(238,244,250,1)" stroke="#34577c" stroke-width="2"/>
+    <circle cx="300" cy="420" r="18" fill="rgba(52,87,124,0.1)"/>
+    <circle class="pulse-node pulse-2" cx="300" cy="420" r="6" fill="#34577c"/>
+    <text x="300" y="430" font-size="11" fill="#34577c" text-anchor="middle" font-weight="600">Growth</text>
   </g>
-
+  
+  <!-- Connection Lines with Data Flow -->
+  <!-- Top Left to Center -->
+  <path class="data-line data-line-1" d="M 110 120 Q 155 150 170 235"/>
+  
+  <!-- Top Center to Center -->
+  <path class="data-line data-line-2" d="M 200 110 L 200 235"/>
+  
+  <!-- Top Right to Center -->
+  <path class="data-line data-line-3" d="M 290 120 Q 245 150 230 235"/>
+  
+  <!-- Center to Bottom Left -->
+  <path class="data-line data-line-1" d="M 170 315 Q 135 360 115 392"/>
+  
+  <!-- Center to Bottom Right -->
+  <path class="data-line data-line-2" d="M 230 315 Q 265 360 285 392"/>
+  
+  <!-- Secondary flowing connections -->
+  <path class="data-line data-line-3" d="M 80 130 Q 140 200 100 392" opacity="0.5"/>
+  <path class="data-line data-line-1" d="M 320 130 Q 260 200 300 392" opacity="0.5"/>
+  
+  <!-- Decorative accent circles -->
+  <circle cx="200" cy="200" r="3" fill="#34577c" opacity="0.6"/>
+  <circle cx="200" cy="250" r="3" fill="#34577c" opacity="0.4"/>
+  
+  <!-- Corner accent marks -->
+  <g opacity="0.3">
+    <line x1="20" y1="40" x2="50" y2="40" stroke="#34577c" stroke-width="2" stroke-linecap="round"/>
+    <line x1="20" y1="40" x2="20" y2="60" stroke="#34577c" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  
+  <g opacity="0.3">
+    <line x1="380" y1="460" x2="350" y2="460" stroke="#34577c" stroke-width="2" stroke-linecap="round"/>
+    <line x1="380" y1="460" x2="380" y2="440" stroke="#34577c" stroke-width="2" stroke-linecap="round"/>
+  </g>
 </svg>
