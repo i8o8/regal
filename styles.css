@@ -12,6 +12,7 @@
   --border:#dbe2ea;
   --border-light:rgba(255,255,255,.6);
   --border-lighter:rgba(255,255,255,.7);
+  --border-accent:var(--accent);
 
   --radius:8px;
   --radius-lg:12px;
@@ -313,7 +314,7 @@ h2{
   width:100%;
   height:auto;
   border-radius:var(--radius-lg);
-  border:1px solid var(--border);
+  border:1px solid var(--border-accent);
   display:block;
 }
 
@@ -345,7 +346,7 @@ h2{
   width:100%;
   display:block;
 
-  border:1px solid var(--border);
+  border:1px solid var(--border-accent);
 }
 
 .hero-pattern::after{
@@ -405,8 +406,7 @@ h2{
 .card{
   background:rgba(255,255,255,.92);
   backdrop-filter:blur(12px);
-  border:1px solid var(--border-lighter);
-  border-top:3px solid var(--accent);
+  border:1px solid var(--border-accent);
   border-radius:var(--radius-xl);
   padding:1.5rem;
   box-shadow:
