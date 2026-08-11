@@ -1,0 +1,276 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1600"
+     height="900"
+     viewBox="0 0 1600 900"
+     preserveAspectRatio="xMidYMid slice">
+
+  <defs>
+
+    <!-- Background -->
+    <linearGradient id="bg"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="1">
+
+      <stop offset="0%"
+            stop-color="#f8fafc"/>
+
+      <stop offset="100%"
+            stop-color="#eef3f8"/>
+
+    </linearGradient>
+
+    <!-- Connection lines -->
+    <linearGradient id="flow"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="0">
+
+      <stop offset="0%"
+            stop-color="#34577c"
+            stop-opacity=".15"/>
+
+      <stop offset="100%"
+            stop-color="#34577c"
+            stop-opacity=".45"/>
+
+    </linearGradient>
+
+    <!-- Card glow -->
+    <filter id="shadow">
+      <feDropShadow dx="0"
+                    dy="10"
+                    stdDeviation="20"
+                    flood-color="#34577c"
+                    flood-opacity=".08"/>
+    </filter>
+
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%"
+        height="100%"
+        fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+
+  <g stroke="#e8edf3"
+     stroke-width="1">
+
+    <path d="M0 150 H1600"/>
+    <path d="M0 300 H1600"/>
+    <path d="M0 450 H1600"/>
+    <path d="M0 600 H1600"/>
+    <path d="M0 750 H1600"/>
+
+    <path d="M200 0 V900"/>
+    <path d="M400 0 V900"/>
+    <path d="M600 0 V900"/>
+    <path d="M800 0 V900"/>
+    <path d="M1000 0 V900"/>
+    <path d="M1200 0 V900"/>
+    <path d="M1400 0 V900"/>
+
+  </g>
+
+  <!-- Input systems -->
+
+  <rect x="180"
+        y="180"
+        width="170"
+        height="90"
+        rx="16"
+        fill="#ffffff"
+        filter="url(#shadow)"/>
+
+  <rect x="180"
+        y="360"
+        width="170"
+        height="90"
+        rx="16"
+        fill="#ffffff"
+        filter="url(#shadow)"/>
+
+  <rect x="180"
+        y="540"
+        width="170"
+        height="90"
+        rx="16"
+        fill="#ffffff"
+        filter="url(#shadow)"/>
+
+  <!-- Data Platform -->
+
+  <rect x="620"
+        y="260"
+        width="320"
+        height="300"
+        rx="24"
+        fill="#ffffff"
+        filter="url(#shadow)"
+        stroke="#dbe2ea"
+        stroke-width="2"/>
+
+  <!-- Analytics layer -->
+
+  <rect x="1140"
+        y="180"
+        width="220"
+        height="120"
+        rx="18"
+        fill="#ffffff"
+        filter="url(#shadow)"/>
+
+  <rect x="1140"
+        y="390"
+        width="220"
+        height="120"
+        rx="18"
+        fill="#ffffff"
+        filter="url(#shadow)"/>
+
+  <rect x="1140"
+        y="600"
+        width="220"
+        height="120"
+        rx="18"
+        fill="#ffffff"
+        filter="url(#shadow)"/>
+
+  <!-- Connection lines -->
+
+  <g fill="none"
+     stroke="url(#flow)"
+     stroke-width="6">
+
+    <path d="M350 225 C450 225 520 330 620 360"/>
+
+    <path d="M350 405 C450 405 520 405 620 405"/>
+
+    <path d="M350 585 C450 585 520 480 620 450"/>
+
+    <path d="M940 360 C1030 360 1080 240 1140 240"/>
+
+    <path d="M940 410 C1030 410 1080 450 1140 450"/>
+
+    <path d="M940 460 C1030 460 1080 660 1140 660"/>
+
+  </g>
+
+  <!-- Nodes -->
+
+  <g fill="#34577c">
+
+    <circle cx="350" cy="225" r="8"/>
+    <circle cx="350" cy="405" r="8"/>
+    <circle cx="350" cy="585" r="8"/>
+
+    <circle cx="620" cy="360" r="10"/>
+    <circle cx="620" cy="405" r="10"/>
+    <circle cx="620" cy="450" r="10"/>
+
+    <circle cx="1140" cy="240" r="10"/>
+    <circle cx="1140" cy="450" r="10"/>
+    <circle cx="1140" cy="660" r="10"/>
+
+  </g>
+
+  <!-- Analytics Chart Illustration -->
+
+  <g transform="translate(1180,205)">
+
+    <rect x="0"
+          y="40"
+          width="20"
+          height="35"
+          fill="#34577c"
+          opacity=".5"/>
+
+    <rect x="35"
+          y="10"
+          width="20"
+          height="65"
+          fill="#34577c"
+          opacity=".7"/>
+
+    <rect x="70"
+          y="25"
+          width="20"
+          height="50"
+          fill="#34577c"
+          opacity=".6"/>
+
+    <rect x="105"
+          y="0"
+          width="20"
+          height="75"
+          fill="#34577c"/>
+  </g>
+
+  <!-- AI Network Illustration -->
+
+  <g stroke="#34577c"
+     stroke-width="3"
+     fill="#34577c"
+     opacity=".75">
+
+    <circle cx="1205" cy="435" r="7"/>
+    <circle cx="1265" cy="405" r="7"/>
+    <circle cx="1320" cy="450" r="7"/>
+    <circle cx="1235" cy="490" r="7"/>
+
+    <line x1="1205"
+          y1="435"
+          x2="1265"
+          y2="405"/>
+
+    <line x1="1265"
+          y1="405"
+          x2="1320"
+          y2="450"/>
+
+    <line x1="1205"
+          y1="435"
+          x2="1235"
+          y2="490"/>
+
+    <line x1="1235"
+          y1="490"
+          x2="1320"
+          y2="450"/>
+
+  </g>
+
+  <!-- KPI Panel Illustration -->
+
+  <g transform="translate(1180,630)">
+
+    <rect x="0"
+          y="0"
+          width="120"
+          height="12"
+          rx="6"
+          fill="#34577c"
+          opacity=".25"/>
+
+    <rect x="0"
+          y="30"
+          width="80"
+          height="12"
+          rx="6"
+          fill="#34577c"
+          opacity=".40"/>
+
+    <rect x="0"
+          y="60"
+          width="150"
+          height="12"
+          rx="6"
+          fill="#34577c"
+          opacity=".60"/>
+
+  </g>
+
+</svg>
